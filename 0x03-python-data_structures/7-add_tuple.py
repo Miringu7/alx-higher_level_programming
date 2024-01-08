@@ -15,4 +15,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
     first_elem = tuple_a[0] + tuple_b[0]
     second_elem = tuple_a[1] + tuple_b[1]
     new_tuple = (first_elem, second_elem)
-    print("{}".format(new_tuple))
+    return new_tuple
