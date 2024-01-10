@@ -3,7 +3,7 @@
 def roman_to_int(roman_string):
     """function def roman_to_int(roman_string): that
         converts a Roman numeral to an integer."""
-    if roman_string:
+    if roman_string and isinstance(roman_string, str):
         roman_dict = {
             'I': 1,
             'IV': 4,
