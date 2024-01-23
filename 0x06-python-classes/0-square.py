@@ -2,6 +2,7 @@
 
 """Define a class Square"""
 
+
 class Square:
     """empty class Square that defines a square"""
     def square(self):
