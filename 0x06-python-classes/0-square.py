@@ -3,4 +3,5 @@
 class Square:
     """"empty class Square that defines a square"""
     def square(self):
+        """square object having an empty block indicated using pass"""
         pass
