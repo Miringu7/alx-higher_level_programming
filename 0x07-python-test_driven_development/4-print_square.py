@@ -7,6 +7,10 @@ def print_square(size):
 
     Args:
         size (int): The height/width of the square.
+
+    Returns:
+    - None
+
     Raises:
         TypeError: If size is not an integer.
         ValueError: If size is < 0

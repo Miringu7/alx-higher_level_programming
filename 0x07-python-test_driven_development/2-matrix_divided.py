@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-"""this module contains a division function."""
+"""
+matrix_divide, divides all elements of a matrix.
+
+Returns new matrix
+"""
 
 
 def matrix_divided(matrix, div):
@@ -12,6 +16,12 @@ def matrix_divided(matrix, div):
 
     Returns:
         list: quotient gotten from division of elements in the matrix
+
+    Raises:
+        TypeError: If matrix is not a list of lists of integers or floats,
+                   if each row of the matrix doesn't have the same size, or
+                   if div is not a number.
+        ZeroDivisionError: If div is equal to 0.
     """
 
     if (not isinstance(matrix, list) or matrix == [] or
@@ -31,3 +41,8 @@ def matrix_divided(matrix, div):
         raise ZeroDivisionError("division by zero")
 
     return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testfile("tests/2-matrix_divided.txt")	
