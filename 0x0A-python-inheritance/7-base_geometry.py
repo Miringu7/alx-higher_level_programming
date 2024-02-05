@@ -3,8 +3,9 @@
 """ defines an geometry class """
 
 
-class BaseGeometry():
+class BaseGeometry(object):
     """ Implements an area function on geometry class """
+
 
     def area(self):
         """ area function
@@ -25,7 +26,7 @@ class BaseGeometry():
             TypeError: <name> must be an integer
             ValueError: <name> must be greater than 0
         """
-        if not isinstance(value, int):
+        if type(value) != int:
             raise TypeError (name + " must be an integer")
         if value <= 0:
             raise ValueError (name + " must be greater than 0")
