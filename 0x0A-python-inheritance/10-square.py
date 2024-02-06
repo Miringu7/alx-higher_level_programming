@@ -5,6 +5,8 @@ Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
+    """ implements a square class using Rectangle"""
+
     def __init__(self, size):
         """ constructor
 
