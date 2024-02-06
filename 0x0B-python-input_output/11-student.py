@@ -36,5 +36,6 @@ class Student():
         Args:
             json (dict): The key/value pairs to replace attributes with.
         """
+
         for x, y in json.items():
             setattr(self, x, y)
