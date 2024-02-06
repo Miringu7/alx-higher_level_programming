@@ -11,6 +11,11 @@ class Square(Rectangle):
         Args:
             size (int): private size
         """
-        self.integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
+
+    def __str__(self):
+        """Return the print() and str()representation of a square"""
+        my_str = "[" + str(Rectangle.__name__) + "] "
+        my_str += str(self.__size) + "/" + str(self.__size)
+        return my_str
