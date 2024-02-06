@@ -30,6 +30,7 @@ class Student():
             return {x: getattr(self, x) for x in attrs if hasattr(self, x)}
 
         return self.__dict__
+
     def reload_from_json(self, json):
         """Replace all attributes of the Student.
 
