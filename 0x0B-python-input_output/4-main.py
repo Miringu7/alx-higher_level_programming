@@ -1,4 +1,3 @@
-guillaume@ubuntu:~/0x0B$ cat 4-main.py
 #!/usr/bin/python3
 from_json_string = __import__('4-from_json_string').from_json_string
 
