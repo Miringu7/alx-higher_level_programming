@@ -20,11 +20,11 @@ class Rectangle(Base):
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if not width >= 0:
-            raise ValueError("width must be > 0") 
+            raise ValueError("width must be > 0")
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
         if not height >= 0:
-            raise ValueError("height must be > 0") 
+            raise ValueError("height must be > 0")
 
         super().__init__(id)
         self.__width = width
@@ -58,7 +58,7 @@ class Rectangle(Base):
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         if not width >= 0:
-            raise ValueError("width must be > 0") 
+            raise ValueError("width must be > 0")
         else:
             self.__width = width
 
@@ -78,7 +78,7 @@ class Rectangle(Base):
         if not isinstance(height, int):
             raise TypeError("height must be an integer")
         if not height >= 0:
-            raise ValueError("height must be > 0") 
+            raise ValueError("height must be > 0")
         else:
             self.__height = height
 
@@ -125,6 +125,15 @@ class Rectangle(Base):
     def area(self):
         """area of rectangle function
         Returns:
-            the area value	
+            the area value
         """
         return self.__width * self.__height
+
+    def display(self):
+        """prints in stdout the Rectangle instance
+        with the character #
+        """
+        for h in range(self.__height):
+            for w in range(self.__width):
+                print("#", end="")
+            print("")
