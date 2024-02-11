@@ -52,3 +52,16 @@ class Base():
         with open("Rectangle.json", mode='w', encoding="utf-8") as my_json:
             list_dicts = [obj.to_dictionary() for obj in list_objs]
             my_json.write(cls.to_json_string(list_dicts))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """adding the static method
+        Args:
+            json_string: string representing a list of dictionaries
+        return:
+             empty list Otherwise, the list represented by json_string
+        """
+        if json_string is None or json_string == "[]":
+            return []
+        else:
+            return json.loads(json_string)
