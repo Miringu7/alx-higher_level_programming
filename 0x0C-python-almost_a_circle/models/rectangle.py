@@ -153,6 +153,7 @@ class Rectangle(Base):
         """assigns an argument to each attribute:
         Args:
             args: stdin method arguments
+            kwargs: function dictionary arguments
         """
         if len(args) >= 1:
             self.id = args[0]
