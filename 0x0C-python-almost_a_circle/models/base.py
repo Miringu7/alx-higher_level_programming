@@ -65,3 +65,24 @@ class Base():
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """adding the class method
+        Args:
+            dictionary: double pointer to a dictionary
+        return:
+            instance with all attributes already set:
+        """
+        dummy_instance = cls(0, 0)
+        dummy_instance.update(**dictionary)
+        return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """load from file class method
+        return:
+            list of instances:
+        """
+        with open("Rectangle.json", encoding="utf-8") as my_json:
+            string = my_json.read()
