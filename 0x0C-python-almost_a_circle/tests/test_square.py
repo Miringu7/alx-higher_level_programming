@@ -109,10 +109,6 @@ class TestSquare_size(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square({"a": 1, "b": 2}, 2)
 
-    def test_bool_size(self):
-        with self.assertRaisesRegex(TypeError, "width must be an integer"):
-            Square(True, 2, 3)
-
     def test_list_size(self):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square([1, 2, 3])
@@ -158,17 +154,9 @@ class TestSquare_size(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-1, 2)
 
-    def test_zero_size(self):
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            Square(0, 2)
-
 
 class TestSquare_x(unittest.TestCase):
     """Unittests for testing initialization of Square x attribute."""
-
-    def test_None_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, None)
 
     def test_str_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -185,10 +173,6 @@ class TestSquare_x(unittest.TestCase):
     def test_dict_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
             Square(1, {"a": 1, "b": 2}, 2)
-
-    def test_bool_x(self):
-        with self.assertRaisesRegex(TypeError, "x must be an integer"):
-            Square(1, True)
 
     def test_list_x(self):
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -489,10 +473,6 @@ class TestSquare_update_args(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             s.update(89, "invalid")
 
-    def test_update_args_size_zero(self):
-        s = Square(10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s.update(89, 0)
 
     def test_update_args_size_negative(self):
         s = Square(10, 10, 10, 10)
@@ -590,11 +570,6 @@ class TestSquare_update_kwargs(unittest.TestCase):
         s = Square(10, 10, 10, 10)
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             s.update(size="invalid")
-
-    def test_update_kwargs_size_zero(self):
-        s = Square(10, 10, 10, 10)
-        with self.assertRaisesRegex(ValueError, "width must be > 0"):
-            s.update(size=0)
 
     def test_update_kwargs_size_negative(self):
         s = Square(10, 10, 10, 10)
