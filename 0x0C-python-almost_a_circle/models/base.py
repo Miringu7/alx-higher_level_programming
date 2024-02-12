@@ -84,5 +84,10 @@ class Base():
         return:
             list of instances:
         """
-        with open("Rectangle.json", encoding="utf-8") as my_json:
-            string = my_json.read()
+        try:
+            with open("Rectangle.json", encoding="utf-8") as my_json:
+                string = my_json.read()
+        except FileNotFoundError:
+            return []
+        my_list = cls.from_json_string(string)
+        return [cls.create(**item) for item in my_list]
