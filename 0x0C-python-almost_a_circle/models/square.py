@@ -22,7 +22,7 @@ class Square(Rectangle):
             [Square] (<id>) <x>/<y> - <size>
         """
         return "[Square] ({}) {}/{} - {}".format(self.id,
-                self.x, self.y, self.height)
+            self.x, self.y, self.height)
 
     @property
     def size(self):
