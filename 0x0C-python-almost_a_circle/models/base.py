@@ -46,10 +46,11 @@ class Base():
         Args:
             list_objs: list of instances who inherits of Base
         """
+        filename = cls.__name__ + ".json"
         if list_objs is None:
-            with open("Rectangle.json", mode='w', encoding="utf-8") as my_json:
+            with open("filename", mode='w', encoding="utf-8") as my_json:
                 my_json.write('[]')
-        with open("Rectangle.json", mode='w', encoding="utf-8") as my_json:
+        with open("filename", mode='w', encoding="utf-8") as my_json:
             list_dicts = [obj.to_dictionary() for obj in list_objs]
             my_json.write(cls.to_json_string(list_dicts))
 
@@ -84,8 +85,9 @@ class Base():
         return:
             list of instances:
         """
+        filename = cls.__name__ + ".json"
         try:
-            with open("Rectangle.json", encoding="utf-8") as my_json:
+            with open(filename, encoding="utf-8") as my_json:
                 string = my_json.read()
         except FileNotFoundError:
             return []
