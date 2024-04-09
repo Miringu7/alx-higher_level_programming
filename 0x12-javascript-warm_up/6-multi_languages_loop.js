@@ -1,18 +1,4 @@
 #!/usr/bin/node
-
-
-/*
- * script that prints “JavaScript is amazing”
- */
-
-const lines = [
-    "C is fun",
-    "Python is cool",
-    "JavaScript is amazing"
-];
-
-// Loop through the array and print each line
-for (let i = 0; i < lines.length; i++) {
-    console.log(lines[i]);
+for (const line of ['C is fun', 'Python is cool', 'JavaScript is amazing']) {
+  console.log(line);
 }
-
