@@ -16,8 +16,9 @@ if __name__ == "__main__":
     query = "SELECT * FROM `states` WHERE BINARY `name` = %s ORDER BY id ASC"
     cursor = db.cursor()
     cursor.execute(query, (name,))
+    states = cursor.fetchall()
 
-    [print(state) for state in cursor.fetchall()]
+    [print(state) for state in states]
 
     cursor.close()
     db.close()
