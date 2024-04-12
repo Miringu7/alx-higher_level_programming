@@ -7,7 +7,7 @@ import sys
 import MySQLdb
 
 
-if __name__ == __main__:
+if __name__ == "__main__":
     """
     script that takes in an argument and displays all values in states table
     of hbtn_0e_0_usa where name matches the argument.
