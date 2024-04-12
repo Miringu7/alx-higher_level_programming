@@ -9,7 +9,14 @@ import MySQLdb
 
 
 def list_states(username, password, database):
-    """ connects to MySQL server and prints the states """
+    """ 
+    connects to MySQL server and prints the states 
+
+    Args:
+        username: mysql username
+        password: mysql password
+        name: database name
+    """
     db = MySQLdb.connect(host="localhost",
             port=3306,
             user=username,
