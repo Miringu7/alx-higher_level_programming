@@ -1,21 +1,21 @@
 #!/usr/bin/python3
 
-"""
-Module that lists all states from the hbtn_0e_0_usa database.
-"""
+"""Module that lists all states from the hbtn_0e_0_usa database."""
+
 import sys
 import MySQLdb
 
-
 if __name__ == "__main__":
-    """
-    script that takes in an argument and displays all values in states table
-    of hbtn_0e_0_usa where name matches the argument.
-    """
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2],
-                         db=sys.argv[3])
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM `states`
-                   WHERE BINARY `name` == {}".format(sys.argv[4]))
 
-    [print(state) for state in cursor.fetchall()]
+    # Get MySQL credentials and search name from command-line arguments
+    # and # Connect to MySQL server
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+
+    # Execute the SQL query to retrieve states with the specified name
+    c.execute("SELECT * \
+                 FROM `states` \
+                WHERE BINARY `name` = '{}'".format(sys.argv[4]))
+
+    # Fetch all rows and print the states
+    [print(state) for state in c.fetchall()]
