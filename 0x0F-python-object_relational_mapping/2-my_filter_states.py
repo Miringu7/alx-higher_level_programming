@@ -18,4 +18,4 @@ if __name__ == __main__:
     cursor = db.cursor()
     cursor.execute("SELECT * FROM `states` ORDER BY states.id ASC")
 
-    [print(state) for state in cursor.fetchall() if state == sys.argv[4]]
+    [print(state) for state in cursor.fetchall() if state[1] == sys.argv[4]]
