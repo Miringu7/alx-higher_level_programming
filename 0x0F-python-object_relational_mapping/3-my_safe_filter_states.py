@@ -11,9 +11,14 @@ if __name__ == "__main__":
     dbname = sys.argv[3]
     name = sys.argv[4]
 
-    db = MySQLdb.connect(user=username, passwd=password, db=dbname)
-    query = "SELECT * FROM `states` WHERE BINARY `name` = %s"
+    db = MySQLdb.connect(host=localhost, port=3306,
+                         user=username, passwd=password, db=dbname)
+    query = "SELECT * FROM `states` WHERE BINARY `name` = %s
+             ORDER BY id ASC"
     cursor = db.cursor()
     cursor.execute(query, (name,))
 
     [print(state) for state in cursor.fetchall()]
+
+    cursor.close()
+    db.close()
