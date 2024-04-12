@@ -27,7 +27,6 @@ def list_states(username, password, database):
     for state in states:
         if state.startswith("N"):
             print(state)
-        fi
 
     cursor.close()
     db.close()
