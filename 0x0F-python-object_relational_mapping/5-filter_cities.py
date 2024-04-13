@@ -17,11 +17,12 @@ if __name__ == "__main__":
     query = "SELECT cities.id, cities.name, states.name FROM cities \
             INNER JOIN states \
             ON cities.state_id = states.id \
+            WHERE states.name = %s \
             ORDER BY cities.id ASC"
-    cursor.execute(query)
+    cursor.execute(query, (state,))
     rows = cursor.fetchall()
 
-    print(", ".join([row[2] for row in rows if row[4] == state]))
+    print(", ".join([row[1] for row in rows]))
 
     cursor.close()
     db.close()
