@@ -11,7 +11,7 @@ if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]),
                            pool_pre_ping=True)
-
+    Base.metadata.create_all(engine)
     # Create a session factory
     Session = sessionmaker(bind=engine)
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     session = Session()
 
     # Retrieve the first state from the database and print its ID and name
-    state = session.query(State).order_by(State.id).first()
+    state = session.query(State).first()
     if state is None:
         print("Nothing")
     else:
