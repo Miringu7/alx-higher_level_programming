@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-"""Module that retrieves and prints all\
-        states from a MySQL database using SQLAlchemy."""
+"""Module that updates the name of a state in a\
+        MySQL database using SQLAlchemy."""
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import State
-
 
 if __name__ == "__main__":
     # Create the SQLAlchemy engine using the provided MySQL credentials
@@ -14,10 +13,12 @@ if __name__ == "__main__":
                            pool_pre_ping=True)
     # Create a session factory
     Session = sessionmaker(bind=engine)
-
     # Create a session object
     session = Session()
 
-    # Retrieve all states from the database and print their IDs and names
-    for state in session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
+    # Retrieve the state with ID 2 from the database
+    state = session.query(State).filter_by(id=2).first()
+    # Update the name of the state to "New Mexico"
+    state.name = "New Mexico"
+    # Commit the session to persist the changes
+    session.commit()
