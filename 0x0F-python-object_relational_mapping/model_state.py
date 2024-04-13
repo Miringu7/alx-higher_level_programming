@@ -1,30 +1,34 @@
 #!/usr/bin/python3
 """
-Module Start link class to table in database
+Class definition of a State and an instance Base = declarative_base()
 """
 
-import sys
-from sqlalchemy.ext.declarative import declarative_base
+import sqlalchemy
 from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
 
+# Create an engine
+engine = create_engine('mysql://username:password@ \
+                       localhost:3306/database_name')
 
-# Define the Base class
+# Define a Base class
 Base = declarative_base()
 
-if __name__ == "__main__":
-    # Create an engine
-    engine = create_engine(
-                           'mysql+mysqldb://{}:{}@localhost/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]),
-                           pool_pre_ping=True)
+# Define the State class
 
-    # Define the State class
-    class State(Base):
-        __tablename__ = 'states'
 
-        id = Column(Integer, primary_key=True, autoincrement=True,
-                    nullable=False)
-        name = Column(String(128), nullable=False)
+class State(Base):
+    __tablename__ = 'states'
 
-    # Create the tables in the database
-    Base.metadata.create_all(engine)
+    id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
+    name = Column(String(128), nullable=False)
+
+# WARNING All classes that inherit from Base must be imported before
+# calling Base.metadata.create_all(engine)
+# For example:
+# from your_module_name import State
+
+# Create the tables in the database
+
+
+Base.metadata.create_all(engine)
