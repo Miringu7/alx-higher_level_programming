@@ -10,8 +10,8 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     # Connect to the NySQL server
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+                           sys.argv[1], sys.argv[2], sys.argv[3]))
 
     # create a session maker
     Session = sessionmaker(bind=engine)
