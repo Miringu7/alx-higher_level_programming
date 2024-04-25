@@ -1,3 +1,3 @@
 #!/bin/bash
 # takes in a URL and displays all HTTP methods the server will accept.
-curl -X ALLOW $1
+curl -X ALLOW "$1"
